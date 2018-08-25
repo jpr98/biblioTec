@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>870056222750-2jm9snfmiunmeu0la7lm02uv0d71ehtu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.870056222750-2jm9snfmiunmeu0la7lm02uv0d71ehtu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCIW_D7nwRvnBiul-njqISl1vxofo7-rAg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>870056222750</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.biblioTec</string>
+	<key>PROJECT_ID</key>
+	<string>bibliotec-8b974</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bibliotec-8b974.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:870056222750:ios:a7b5bf1b83ca01e7</string>
+	<key>DATABASE_URL</key>
+	<string>https://bibliotec-8b974.firebaseio.com</string>
+</dict>
+</plist>

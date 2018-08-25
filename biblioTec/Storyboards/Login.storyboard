@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="vv6-dK-Jeg">
             <objects>
-                <viewController id="ymN-6u-KvV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ntq-mx-BMM">
+                <viewController id="ymN-6u-KvV" customClass="LoginViewController" customModule="biblioTec" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ntq-mx-BMM" customClass="Login">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -57,12 +57,17 @@
                                 <rect key="frame" x="112" y="342" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Entrar"/>
+                                <connections>
+                                    <action selector="enterButtonTapped:" destination="ymN-6u-KvV" eventType="touchUpInside" id="MzG-Gp-cOs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oHd-8F-0S3"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="B9D-oH-KEv" id="0ja-Q8-ddz"/>
+                        <outlet property="enterButton" destination="fla-eY-bCd" id="XOQ-XY-2wg"/>
                         <segue destination="6g9-SB-eB7" kind="show" identifier="toConfirmCode" id="7RF-8V-9GY"/>
                     </connections>
                 </viewController>
@@ -70,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="200.80000000000001" y="172.26386806596702"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Confirmation View Controller-->
         <scene sceneID="xnf-ZY-kvy">
             <objects>
-                <viewController id="6g9-SB-eB7" sceneMemberID="viewController">
+                <viewController id="6g9-SB-eB7" customClass="LoginConfirmationViewController" customModule="biblioTec" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQB-jN-uul">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,14 +116,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirmar"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz4-N0-hbF">
+                                <rect key="frame" x="153" y="318" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirmar"/>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="6g9-SB-eB7" eventType="touchUpInside" id="pBB-Ei-1vz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YHv-HI-DVe"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="J6g-Cv-fYa" id="QW6-eR-4Lm"/>
+                        <outlet property="verificationTextField" destination="P9K-Sn-rZp" id="dH9-Rn-0fT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Aa-2r-GDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077.5999999999999" y="176.76161919040482"/>
+            <point key="canvasLocation" x="1076" y="172"/>
         </scene>
     </scenes>
 </document>
