@@ -36,10 +36,15 @@ struct ReservationService {
 				assertionFailure(error.localizedDescription)
 			}
 		}
+		
+		UserDefault.defaults.set(true, forKey: "hasReservation")
+		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3600)) {
+			deleteReservation(from: email)
+		}
 	}
 	
 	// Function: disallocate reservation once one hour passes since reservation
-	static func deleteReservation(from email: String) {
+	private static func deleteReservation(from email: String) {
 		let ref = Database.database().reference().child("reservations").child(email)
 		
 		ref.removeValue { (error, ref) in
@@ -47,6 +52,8 @@ struct ReservationService {
 				assertionFailure(error.localizedDescription)
 			}
 		}
+		
+		UserDefault.defaults.set(false, forKey: "hasReservation")
 	}
 	
 	static func countReservations(completion: @escaping([String:Int])->Void) {

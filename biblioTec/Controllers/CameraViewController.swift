@@ -12,20 +12,25 @@ import Foundation
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
+
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var backBtn: UIButton!
     
+
     var stringURL = String()
     
+
     enum error: Error {
         case noCameraAvailable
         case videoInput
     }
     
+
     @IBAction func btnBackPressed(_ sender: Any) {
         performSegue(withIdentifier: "backToMenu", sender: self)
     }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         backBtn.layer.cornerRadius = 10
@@ -36,10 +41,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection){
         if metadataObjects.count > 0 {
             let machineReadableCode = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
@@ -53,6 +60,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 
                 let jsonData = try? JSONSerialization.data(withJSONObject: json)
                 
+
                 // create post request
                 let url = URL(string: "\(stringURL)/\(id)")!
                 var request = URLRequest(url: url)
@@ -60,9 +68,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 request.setValue(" application/json; charset=utf-8", forHTTPHeaderField:"Content-Type")
                 
 
+
                 // insert json data to the request
                 request.httpBody = jsonData
                 
+
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
                     guard let data = data, error == nil else {
                         print(error?.localizedDescription ?? "No data")
@@ -78,9 +88,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
+
     func scanQRCode() throws {
         let avCaptureSession = AVCaptureSession()
         
+
         guard let avCaptureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
             print("no camera")
             throw error.noCameraAvailable
@@ -90,19 +102,24 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             throw error.videoInput
         }
         
+
         let avCaptureMetadataOutput = AVCaptureMetadataOutput()
         avCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
+
         avCaptureSession.addInput(avCaptureInput)
         avCaptureSession.addOutput(avCaptureMetadataOutput)
         
+
         avCaptureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         
+
         let avCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: avCaptureSession)
         avCaptureVideoPreviewLayer.frame.size = cameraView.layer.bounds.size
         avCaptureVideoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         cameraView.layer.addSublayer(avCaptureVideoPreviewLayer)
         
+
         avCaptureSession.startRunning()
     }
 }
