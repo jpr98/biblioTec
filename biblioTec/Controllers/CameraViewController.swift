@@ -73,13 +73,19 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 task.resume()
 				
 				let alertController = UIAlertController(title: "Código Escaneado", message: "Gracias por ayudarnos a hacer la biblioteca un mejor lugar para todos!", preferredStyle: .alert)
-				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_) in
+					self.unwind()
+				}))
 				present(alertController, animated: true, completion: nil)
-				self.performSegue(withIdentifier: Constants.SegueIdenfiers.endedScanning, sender: self)
+				
             }
         }
     }
 
+	func unwind() {
+		self.performSegue(withIdentifier: Constants.SegueIdenfiers.endedScanning, sender: self)
+	}
+	
     func scanQRCode() throws {
         let avCaptureSession = AVCaptureSession()
 
