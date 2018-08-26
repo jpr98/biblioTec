@@ -45,14 +45,16 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let machineReadableCode = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             if machineReadableCode.type == AVMetadataObject.ObjectType.qr {
                 stringURL = machineReadableCode.stringValue!
-                print("QR CODE-------:\(stringURL)")
                 // prepare json data
                 let json: [String: Any] = ["updated": 0]
+                
+                let id = UserDefault.defaults.string(forKey: "user")!
+                
                 
                 let jsonData = try? JSONSerialization.data(withJSONObject: json)
                 
                 // create post request
-                let url = URL(string: stringURL)!
+                let url = URL(string: "\(stringURL)/\(id)")!
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
                 request.setValue(" application/json; charset=utf-8", forHTTPHeaderField:"Content-Type")
