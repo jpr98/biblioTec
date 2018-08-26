@@ -43,9 +43,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if metadataObjects.count > 0 {
             let machineReadableCode = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             if machineReadableCode.type == AVMetadataObject.ObjectType.qr {
-                stringURL = machineReadableCode.stringValue!
-                print("QR CODE-------:\(stringURL)") //FLAGGGG <--------------------------------------------------------
-            }
+				if let stringURL = machineReadableCode.stringValue {
+					print("QR CODE-------:\(stringURL)") //FLAGGGG <--------------------------------------------------------
+					ReservationService.createReservation(for: UserDefault.defaults.string(forKey: "user")!, in: "2B")
+					let alertController = UIAlertController(title: "Código Escaneado", message: "Gracias por ayudar a hacer la Biblioteca un mejor lugar para todos!", preferredStyle: .alert)
+					alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+					present(alertController, animated: true, completion: nil)
+				}
+			}
         }
     }
     
