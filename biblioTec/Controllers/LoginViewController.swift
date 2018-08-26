@@ -18,6 +18,11 @@ class LoginViewController: UIViewController {
 	// MARK: VC Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// dismiss keyboard
+		let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+		tap.cancelsTouchesInView = false
+		self.view.addGestureRecognizer(tap)
 	}
 	
 	// MARK: Buttons
