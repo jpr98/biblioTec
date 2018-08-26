@@ -11,6 +11,8 @@ import AnimatedCollectionViewLayout
 
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var pisoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
@@ -70,6 +72,8 @@ class ImageCollectionViewController: UICollectionViewController {
     @IBAction func didSwipeDown(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    override var prefersStatusBarHidden: Bool { return true }
+
 }
 
 extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -89,6 +93,7 @@ extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
             let v = vcs[i]
             cell.bind(color: v)
             cell.clipsToBounds = true
+            cell.pisoLabel.text = "Piso \(String(indexPath.row+1))"
         }
         
         return c
