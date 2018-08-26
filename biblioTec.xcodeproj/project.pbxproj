@@ -17,6 +17,7 @@
 		0B6786612131D5D60077526D /* LoginConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6786602131D5D60077526D /* LoginConfirmationViewController.swift */; };
 		0B6786632131D5E60077526D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6786622131D5E60077526D /* LoginViewController.swift */; };
 		0B6786652131E0C40077526D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B6786642131E0C40077526D /* GoogleService-Info.plist */; };
+		0BFFD0AC213263D000FD26E2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFFD0AB213263D000FD26E2 /* UserDefaults.swift */; };
 		5F0CC0C021321C340057CE99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CC0BF21321C340057CE99 /* MainViewController.swift */; };
 		5F0CC0C2213220690057CE99 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CC0C1213220690057CE99 /* CollectionViewCell.swift */; };
 		B2C65BA788185AF3749BB61D /* Pods_biblioTec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32B6CD0204B659F71BE27 /* Pods_biblioTec.framework */; };
@@ -35,6 +36,7 @@
 		0B6786602131D5D60077526D /* LoginConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfirmationViewController.swift; sourceTree = "<group>"; };
 		0B6786622131D5E60077526D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0B6786642131E0C40077526D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0BFFD0AB213263D000FD26E2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4FE04EF97B54E3A8CCC056B0 /* Pods-biblioTec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-biblioTec.debug.xcconfig"; path = "Pods/Target Support Files/Pods-biblioTec/Pods-biblioTec.debug.xcconfig"; sourceTree = "<group>"; };
 		5F0CC0BF21321C340057CE99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5F0CC0C1213220690057CE99 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				0B67865A2131D41A0077526D /* Constants.swift */,
 				0B67864D2131C64E0077526D /* Assets.xcassets */,
+				0BFFD0AB213263D000FD26E2 /* UserDefaults.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				0B01BDDC21321FCF0085628C /* ReservationService.swift in Sources */,
 				5F0CC0C2213220690057CE99 /* CollectionViewCell.swift in Sources */,
 				0B6786472131C64C0077526D /* AppDelegate.swift in Sources */,
+				0BFFD0AC213263D000FD26E2 /* UserDefaults.swift in Sources */,
 				0B67865B2131D41B0077526D /* Constants.swift in Sources */,
 				5F0CC0C021321C340057CE99 /* MainViewController.swift in Sources */,
 			);
