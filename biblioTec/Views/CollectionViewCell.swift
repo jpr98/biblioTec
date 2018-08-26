@@ -13,10 +13,23 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pisoLabel: UILabel!
     
+    @IBOutlet weak var viewZona1: UIView!
+    @IBOutlet weak var viewZona2: UIView!
+    @IBOutlet weak var viewZona3: UIView!
+    @IBOutlet weak var viewZona4: UIView!
+    
+    @IBOutlet weak var labelZona1: UILabel!
+    @IBOutlet weak var labelZona2: UILabel!
+    @IBOutlet weak var labelZona3: UILabel!
+    @IBOutlet weak var labelZona4: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
+        viewZona1.layer.borderWidth = 1
+        viewZona2.layer.borderWidth = 1
+        viewZona3.layer.borderWidth = 1
+        viewZona4.layer.borderWidth = 1
     }
     func bind(color: String) {
         contentView.backgroundColor = color.hexColor
@@ -45,7 +58,7 @@ class ImageCollectionViewController: UICollectionViewController {
     
     @IBOutlet var dismissGesture: UISwipeGestureRecognizer!
     
-    var animator: (LayoutAttributesAnimator, Bool, Int, Int) = (ZoomInOutAttributesAnimator(), true, 1, 1)
+    var animator2: (LayoutAttributesAnimator, Bool, Int, Int) = (ZoomInOutAttributesAnimator(), true, 1, 1)
     var direction: UICollectionViewScrollDirection = .vertical
     
     let cellIdentifier = "CollectionViewCell"
@@ -61,9 +74,10 @@ class ImageCollectionViewController: UICollectionViewController {
         
         if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
             layout.scrollDirection = direction
-            layout.animator = animator.0
+            layout.animator = animator2.0
         }
-        dismissGesture.direction = direction == .horizontal ? .down : .right
+        dismissGesture.direction = .right
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +108,7 @@ extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
             let i = indexPath.row % vcs.count
             let v = vcs[i]
             cell.bind(color: v)
-            cell.clipsToBounds = true
+            cell.clipsToBounds = animator2.1
             cell.pisoLabel.text = "Piso \(String(indexPath.row+2))"
         }
         
@@ -102,7 +116,8 @@ extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.bounds.width / CGFloat(animator.2), height: view.bounds.height / CGFloat(animator.3))
+        _ = animator2
+        return CGSize(width: view.bounds.width / CGFloat(animator2.2), height: view.bounds.height / CGFloat(animator2.3))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
