@@ -15,6 +15,7 @@ class LoginConfirmationViewController: UIViewController {
 	@IBOutlet weak var verificationTextField: UITextField!
 	@IBOutlet weak var confirmButton: UIButton!
 	var email: String?
+	var id: String?
 	
 	// MARK: VC Lifecycle
 	override func viewDidLoad() {
@@ -26,7 +27,10 @@ class LoginConfirmationViewController: UIViewController {
 		if checkCode() {
 			Auth.auth().createUser(withEmail: email!, password: verificationTextField.text!) { (authResult, error) in
 				
-				guard let user = authResult?.user else { return }
+				guard let user = authResult?.user,
+					  let id = self.id else { return }
+				ReservationService.createUser(email: id)
+				print("\(user) logged in")
 			}
 		}
 	}
