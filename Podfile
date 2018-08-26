@@ -9,5 +9,5 @@ target 'biblioTec' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-
+  pod 'AnimatedCollectionViewLayout'
 end

@@ -16,6 +16,8 @@
 		0B6786612131D5D60077526D /* LoginConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6786602131D5D60077526D /* LoginConfirmationViewController.swift */; };
 		0B6786632131D5E60077526D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6786622131D5E60077526D /* LoginViewController.swift */; };
 		0B6786652131E0C40077526D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B6786642131E0C40077526D /* GoogleService-Info.plist */; };
+		5F0CC0C021321C340057CE99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CC0BF21321C340057CE99 /* MainViewController.swift */; };
+		5F0CC0C2213220690057CE99 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0CC0C1213220690057CE99 /* CollectionViewCell.swift */; };
 		B2C65BA788185AF3749BB61D /* Pods_biblioTec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B32B6CD0204B659F71BE27 /* Pods_biblioTec.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		0B6786622131D5E60077526D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0B6786642131E0C40077526D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FE04EF97B54E3A8CCC056B0 /* Pods-biblioTec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-biblioTec.debug.xcconfig"; path = "Pods/Target Support Files/Pods-biblioTec/Pods-biblioTec.debug.xcconfig"; sourceTree = "<group>"; };
+		5F0CC0BF21321C340057CE99 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5F0CC0C1213220690057CE99 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D8B32B6CD0204B659F71BE27 /* Pods_biblioTec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_biblioTec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F6F5AE056CB88194744B63 /* Pods-biblioTec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-biblioTec.release.xcconfig"; path = "Pods/Target Support Files/Pods-biblioTec/Pods-biblioTec.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +73,7 @@
 		0B6786452131C64C0077526D /* biblioTec */ = {
 			isa = PBXGroup;
 			children = (
+				5F0CC0C3213220750057CE99 /* Views */,
 				0B67865F2131D59C0077526D /* Storyboards */,
 				0B67865E2131D5730077526D /* Supporting Files */,
 				0B67865D2131D5690077526D /* Controllers */,
@@ -85,6 +90,7 @@
 			children = (
 				0B6786602131D5D60077526D /* LoginConfirmationViewController.swift */,
 				0B6786622131D5E60077526D /* LoginViewController.swift */,
+				5F0CC0BF21321C340057CE99 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +111,14 @@
 				0B6786582131D0340077526D /* Login.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5F0CC0C3213220750057CE99 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F0CC0C1213220690057CE99 /* CollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7E8857098C9343AF768F363B /* Pods */ = {
@@ -220,6 +234,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-biblioTec/Pods-biblioTec-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AnimatedCollectionViewLayout/AnimatedCollectionViewLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -227,6 +242,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnimatedCollectionViewLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -246,8 +262,10 @@
 			files = (
 				0B6786632131D5E60077526D /* LoginViewController.swift in Sources */,
 				0B6786612131D5D60077526D /* LoginConfirmationViewController.swift in Sources */,
+				5F0CC0C2213220690057CE99 /* CollectionViewCell.swift in Sources */,
 				0B6786472131C64C0077526D /* AppDelegate.swift in Sources */,
 				0B67865B2131D41B0077526D /* Constants.swift in Sources */,
+				5F0CC0C021321C340057CE99 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

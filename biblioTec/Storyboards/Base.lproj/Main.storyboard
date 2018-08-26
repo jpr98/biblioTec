@@ -1,24 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="biblioTec" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gx0-om-jrt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ujL-c5-TtX"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Biblio Tech" id="K0X-rk-xcM"/>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="JeY-ST-abj">
+                                <rect key="frame" x="50" y="228.5" width="275" height="210"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jB-z4-eVt">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="80"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="6m5-by-SeO"/>
+                                        </constraints>
+                                        <state key="normal" title="Look for a place"/>
+                                        <connections>
+                                            <action selector="buscarLugarPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="45H-eN-cPD"/>
+                                            <segue destination="RdU-Pn-16C" kind="show" identifier="toLookForPlace" id="elx-5G-Pfh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHj-cy-hgS">
+                                        <rect key="frame" x="0.0" y="130" width="275" height="80"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="nhQ-xl-bg5"/>
+                                        </constraints>
+                                        <state key="normal" title="Scan a table"/>
+                                        <connections>
+                                            <action selector="scanQrPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zfZ-90-T4d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JeY-ST-abj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0II-cv-Fvr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JeY-ST-abj" secondAttribute="trailing" constant="50" id="2yu-FM-LrC"/>
+                            <constraint firstItem="JeY-ST-abj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3mO-dt-1uW"/>
+                            <constraint firstItem="Gx0-om-jrt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ETJ-rj-0ku"/>
+                            <constraint firstItem="Gx0-om-jrt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wt6-eO-bbY"/>
+                            <constraint firstItem="JeY-ST-abj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="nJL-7i-QMR"/>
+                            <constraint firstItem="Gx0-om-jrt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sp7-DG-FL3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buscarLugarBtn" destination="5jB-z4-eVt" id="wao-ly-8YP"/>
+                        <outlet property="scanQrBtn" destination="hHj-cy-hgS" id="o6I-L7-o3x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-9" y="99"/>
+        </scene>
+        <!--Image Collection View Controller-->
+        <scene sceneID="iAq-yI-YIf">
+            <objects>
+                <collectionViewController id="RdU-Pn-16C" customClass="ImageCollectionViewController" customModule="biblioTec" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xVs-o3-EDL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="upb-oP-Aob">
+                            <size key="itemSize" width="142" height="145"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="uAn-xl-fRE" customClass="CollectionViewCell" customModule="biblioTec" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="142" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="142" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="RdU-Pn-16C" id="1Vm-3T-eaU"/>
+                            <outlet property="delegate" destination="RdU-Pn-16C" id="sSR-tm-6WR"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOv-fq-sQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="97.601199400299862"/>
         </scene>
     </scenes>
 </document>

@@ -1,4 +1,5 @@
 PODS:
+  - AnimatedCollectionViewLayout (0.3.0)
   - Firebase/Auth (5.5.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.3)
@@ -63,12 +64,14 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - AnimatedCollectionViewLayout
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AnimatedCollectionViewLayout
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -83,6 +86,7 @@ SPEC REPOS:
     - nanopb
 
 SPEC CHECKSUMS:
+  AnimatedCollectionViewLayout: 504b992a4258eb39d2dd2b2b48e84b4b95860fd7
   Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
   FirebaseAnalytics: d4a260c114aec0d765ab5b9c404ac63de1d29381
   FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
@@ -96,6 +100,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 746f9423a0b13649091acdc7c8b4d2c5ace26c48
+PODFILE CHECKSUM: 76047e7427c0afcdb15c8400b04b8ac0cc3ddb0d
 
 COCOAPODS: 1.5.3
