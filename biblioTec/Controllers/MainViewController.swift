@@ -11,7 +11,8 @@ import AnimatedCollectionViewLayout
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var buscarLugarBtn: UIButton!
+	@IBOutlet weak var currentLabel: UILabel!
+	@IBOutlet weak var buscarLugarBtn: UIButton!
     @IBOutlet weak var scanQrBtn: UIButton!
     
     @IBAction func unwind(segue:UIStoryboardSegue) { }
@@ -28,7 +29,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		currentLabel.text = "Signed in as \(UserDefault.defaults.string(forKey: "user")!)"
 		if UserDefault.defaults.bool(forKey: "hasReserved") {
 			buscarLugarBtn.isEnabled = false
 		}
