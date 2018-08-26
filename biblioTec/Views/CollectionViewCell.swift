@@ -68,15 +68,16 @@ class ImageCollectionViewController: UICollectionViewController {
                ("03a9f4"),
                ("009688")]
 	
-	var zones: [Int] = []
+	var zones: [Int] = [20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20]
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.isPagingEnabled = true
 		
-		ReservationService.countReservations { (arr) in
-			self.zones = arr
-			self.collectionView?.reloadData()
-		}
+//		ReservationService.countReservations { (arr) in
+//			self.zones = arr
+//			//print(self.zones)
+//			self.collectionView?.reloadData()
+//		}
         if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
             layout.scrollDirection = direction
             layout.animator = animator2.0
@@ -84,6 +85,14 @@ class ImageCollectionViewController: UICollectionViewController {
         dismissGesture.direction = .right
         
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		ReservationService.countReservations { (arr) in
+			self.zones = arr
+			self.collectionView?.reloadData()
+		}
+	}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

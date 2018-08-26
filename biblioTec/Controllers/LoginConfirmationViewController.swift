@@ -32,15 +32,15 @@ class LoginConfirmationViewController: UIViewController {
 		if checkCode() {
 			print("--------------got in")
 			print(email!)
+			print(id!)
 			print(verificationTextField.text!)
-			Auth.auth().createUser(withEmail: email!, password: verificationTextField.text!) { (authResult, error) in
+			Auth.auth().createUser(withEmail: "\(id!)@itesm.mx", password: verificationTextField.text!) { (authResult, error) in
 				print("waiting for firebase")
-				guard let user = authResult?.user,
-					  let id = self.id else {
+				guard let id = self.id else {
 						print("returned in guard")
 						return }
 				ReservationService.createUser(email: id)
-				print("\(user) logged in")
+				//print("\(user) logged in")
 				UserDefault.defaults.set(id, forKey: "user")
 				UserDefault.defaults.synchronize()
 				print("user defaults saved")

@@ -73,11 +73,9 @@ struct UserDefault {
 	
 	static func makingReservation() {
 		defaults.set(true, forKey: "hasReserved")
+		print(defaults.bool(forKey: "hasReserved"))
 		defaults.synchronize()
-		let _ = Timer(timeInterval: 1, repeats: false) { _ in
-			defaults.set(false, forKey: "hasReserved")
-			defaults.synchronize()
-		}
+		let _ = NSTimeIntervalSince1970
 	}
 }
 

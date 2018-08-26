@@ -70,7 +70,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                         print(responseJSON)
                     }
                 }
-                task.resume()
 				
 				let alertController = UIAlertController(title: "Código Escaneado", message: "Gracias por ayudarnos a hacer la biblioteca un mejor lugar para todos!", preferredStyle: .alert)
 				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_) in
@@ -79,6 +78,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 				}))
 				present(alertController, animated: true, completion: nil)
 				
+				task.resume()
             }
         }
     }

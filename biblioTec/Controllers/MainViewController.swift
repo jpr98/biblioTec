@@ -32,23 +32,24 @@ class MainViewController: UIViewController {
 		if let user = UserDefault.defaults.string(forKey: "user") {
 			currentLabel.text = user.uppercased()
 		}
-		
+		UserDefault.defaults.set(false, forKey: "hasReserved")
 		if UserDefault.defaults.bool(forKey: "hasReserved") {
 			scanQrBtn.isEnabled = false
 			scanQrBtn.layer.backgroundColor = UIColor.gray.cgColor
 		}
         buscarLugarBtn.layer.cornerRadius = 10
         scanQrBtn.layer.cornerRadius = 10
-		//UserDefault.defaults.set(false, forKey: "hasReserved")
+		
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		UserDefault.defaults.set(false, forKey: "hasReserved")
 		if UserDefault.defaults.bool(forKey: "hasReserved") {
 			scanQrBtn.isEnabled = false
 			scanQrBtn.layer.backgroundColor = UIColor.gray.cgColor
 		}
 	}
-    
+	
     
 }
