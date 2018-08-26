@@ -100,6 +100,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="329" height="385"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cetec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUq-j5-foI">
+                                            <rect key="frame" x="142" y="79" width="45.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JDC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXG-ss-97O">
                                             <rect key="frame" x="148.5" y="346" width="32.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -107,21 +113,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piso" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTs-L3-0gg">
-                                            <rect key="frame" x="135.5" y="8" width="58" height="36"/>
+                                            <rect key="frame" x="135.5" y="28" width="58" height="36"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cetec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUq-j5-foI">
-                                            <rect key="frame" x="142" y="59" width="45.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="ZTs-L3-0gg" firstAttribute="top" secondItem="uAn-xl-fRE" secondAttribute="topMargin" id="7vr-xS-2lT"/>
+                                    <constraint firstItem="ZTs-L3-0gg" firstAttribute="top" secondItem="uAn-xl-fRE" secondAttribute="topMargin" constant="20" id="7vr-xS-2lT"/>
                                     <constraint firstItem="eUq-j5-foI" firstAttribute="centerX" secondItem="uAn-xl-fRE" secondAttribute="centerX" id="FlB-Yw-Fit"/>
                                     <constraint firstItem="ZTs-L3-0gg" firstAttribute="centerX" secondItem="uAn-xl-fRE" secondAttribute="centerX" id="aMf-Db-C5s"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="HXG-ss-97O" secondAttribute="bottom" constant="10" id="cmq-WK-ka3"/>
@@ -130,6 +131,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="pisoLabel" destination="ZTs-L3-0gg" id="9RX-eB-qnf"/>
+                                    <outletCollection property="gestureRecognizers" destination="k8j-D9-7nM" appends="YES" id="bqG-Y2-dhC"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -138,10 +140,18 @@
                             <outlet property="delegate" destination="RdU-Pn-16C" id="sSR-tm-6WR"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="dismissGesture" destination="k8j-D9-7nM" id="JSw-jr-WfV"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOv-fq-sQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="k8j-D9-7nM">
+                    <connections>
+                        <action selector="didSwipeDown:" destination="RdU-Pn-16C" id="FPW-v9-Zbh"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="666" y="99"/>
+            <point key="canvasLocation" x="864.79999999999995" y="-198.35082458770617"/>
         </scene>
     </scenes>
 </document>

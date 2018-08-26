@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var buscarLugarBtn: UIButton!
     @IBOutlet weak var scanQrBtn: UIButton!
     
+    @IBAction func unwind(segue:UIStoryboardSegue) { }
+    
     private let animators: (LayoutAttributesAnimator, Bool, Int, Int) = (ZoomInOutAttributesAnimator(), true, 1, 1)
                                                                            
     

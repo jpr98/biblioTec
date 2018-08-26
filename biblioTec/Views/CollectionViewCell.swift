@@ -13,6 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pisoLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
@@ -62,6 +63,7 @@ class ImageCollectionViewController: UICollectionViewController {
             layout.scrollDirection = direction
             layout.animator = animator.0
         }
+        dismissGesture.direction = direction == .horizontal ? .down : .right
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,7 +75,7 @@ class ImageCollectionViewController: UICollectionViewController {
         dismiss(animated: true, completion: nil)
     }
     override var prefersStatusBarHidden: Bool { return true }
-
+    
 }
 
 extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -93,7 +95,7 @@ extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
             let v = vcs[i]
             cell.bind(color: v)
             cell.clipsToBounds = true
-            cell.pisoLabel.text = "Piso \(String(indexPath.row+1))"
+            cell.pisoLabel.text = "Piso \(String(indexPath.row+2))"
         }
         
         return c
