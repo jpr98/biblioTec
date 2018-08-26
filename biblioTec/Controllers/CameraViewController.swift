@@ -57,7 +57,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 request.httpMethod = "POST"
                 request.setValue(" application/json; charset=utf-8", forHTTPHeaderField:"Content-Type")
 
-
                 // insert json data to the request
                 request.httpBody = jsonData
 
@@ -72,6 +71,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                     }
                 }
                 task.resume()
+				
+				let alertController = UIAlertController(title: "Código Escaneado", message: "Gracias por ayudarnos a hacer la biblioteca un mejor lugar para todos!", preferredStyle: .alert)
+				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+				present(alertController, animated: true, completion: nil)
+				dismiss(animated: true, completion: nil)
             }
         }
     }
