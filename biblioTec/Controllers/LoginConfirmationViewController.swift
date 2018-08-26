@@ -32,6 +32,11 @@ class LoginConfirmationViewController: UIViewController {
 				ReservationService.createUser(email: id)
 				print("\(user) logged in")
 			}
+			let storyboard = UIStoryboard(name: "Main", bundle: .main)
+			if let initialViewController = storyboard.instantiateInitialViewController() {
+				self.view.window?.rootViewController = initialViewController
+				self.view.window?.makeKeyAndVisible()
+			}
 		}
 	}
 	
