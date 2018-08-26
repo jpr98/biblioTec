@@ -73,6 +73,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="study-2" translatesAutoresizingMaskIntoConstraints="NO" id="JVk-IV-tiJ">
                                 <rect key="frame" x="67" y="99" width="240" height="127"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as A00883355" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHE-sc-glK">
+                                <rect key="frame" x="60" y="69" width="310" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="scn-gS-LtX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -88,17 +97,20 @@
                             <constraint firstItem="d3O-r0-foH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="Toj-Zz-gtX"/>
                             <constraint firstItem="LVr-uG-uAM" firstAttribute="top" secondItem="JeY-ST-abj" secondAttribute="bottom" constant="30" id="U4B-9x-cmA"/>
                             <constraint firstItem="Gx0-om-jrt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wt6-eO-bbY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iHE-sc-glK" secondAttribute="trailing" constant="5" id="fw6-yY-1pc"/>
                             <constraint firstItem="LVr-uG-uAM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lov-v7-ONe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JVk-IV-tiJ" secondAttribute="trailing" constant="68" id="n7A-H9-Vnr"/>
                             <constraint firstItem="JeY-ST-abj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="nJL-7i-QMR"/>
                             <constraint firstItem="d3O-r0-foH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pE9-5N-1Ni"/>
                             <constraint firstItem="d3O-r0-foH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pbg-7P-58C"/>
                             <constraint firstItem="Gx0-om-jrt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sp7-DG-FL3"/>
+                            <constraint firstItem="JVk-IV-tiJ" firstAttribute="top" secondItem="iHE-sc-glK" secondAttribute="bottom" constant="12" id="tvi-bc-gsI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="buscarLugarBtn" destination="5jB-z4-eVt" id="wao-ly-8YP"/>
+                        <outlet property="currentLabel" destination="iHE-sc-glK" id="ZHe-U3-EuH"/>
                         <outlet property="scanQrBtn" destination="hHj-cy-hgS" id="o6I-L7-o3x"/>
                     </connections>
                 </viewController>
