@@ -48,4 +48,37 @@ struct ReservationService {
 			}
 		}
 	}
+	
+	static func countReservations(completion: @escaping([String:Int])->Void) {
+		let ref = Database.database().reference().child("reservations")
+		
+		var dict: [String:Int] = [:]
+		
+		ref.observeSingleEvent(of: .value) { (snapshot) in
+			// looping through every user who has a reservation
+			for child in snapshot.children {
+				let snap = child as! DataSnapshot
+				if let value = snap.value as? [String:Any] {
+					guard let zone = value["zone"],
+						let time = value["time_reserved"] else { return }
+				}
+			}
+		}
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
