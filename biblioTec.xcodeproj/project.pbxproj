@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B01BDDC21321FCF0085628C /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B01BDDB21321FCF0085628C /* ReservationService.swift */; };
 		0B6786472131C64C0077526D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6786462131C64C0077526D /* AppDelegate.swift */; };
 		0B67864C2131C64C0077526D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B67864A2131C64C0077526D /* Main.storyboard */; };
 		0B67864E2131C64E0077526D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B67864D2131C64E0077526D /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B01BDDB21321FCF0085628C /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
 		0B6786432131C64C0077526D /* biblioTec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biblioTec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6786462131C64C0077526D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B67864B2131C64C0077526D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B01BDDA21321FA10085628C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B01BDDB21321FCF0085628C /* ReservationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0B67863A2131C64C0077526D = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 				0B67865E2131D5730077526D /* Supporting Files */,
 				0B67865D2131D5690077526D /* Controllers */,
 				0B6786462131C64C0077526D /* AppDelegate.swift */,
+				0B01BDDA21321FA10085628C /* Services */,
 				0B67864F2131C64E0077526D /* LaunchScreen.storyboard */,
 				0B6786522131C64E0077526D /* Info.plist */,
 				0B6786642131E0C40077526D /* GoogleService-Info.plist */,
@@ -246,6 +257,7 @@
 			files = (
 				0B6786632131D5E60077526D /* LoginViewController.swift in Sources */,
 				0B6786612131D5D60077526D /* LoginConfirmationViewController.swift in Sources */,
+				0B01BDDC21321FCF0085628C /* ReservationService.swift in Sources */,
 				0B6786472131C64C0077526D /* AppDelegate.swift in Sources */,
 				0B67865B2131D41B0077526D /* Constants.swift in Sources */,
 			);

@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
 			let destination = segue.destination as! LoginConfirmationViewController
 			if checkEmail() {
 				destination.email = formatEmail()
+				destination.id = emailTextField.text!
 			}
 			
 		default:
@@ -49,7 +50,8 @@ class LoginViewController: UIViewController {
 			print("Error in checkEmail(): coudn't unwrap email")
 			return false
 		}
-		return email.starts(with: "A0") && email.count == 9
+		
+		return (email.starts(with: "A0") || email.starts(with: "a0")) && (email.count == 9)
 	}
 	
 	func formatEmail() -> String{
