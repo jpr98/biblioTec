@@ -86,14 +86,14 @@ class ImageCollectionViewController: UICollectionViewController {
         
     }
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		ReservationService.countReservations { (arr) in
-			self.zones = arr
-			print(self.zones)
-			self.collectionView?.reloadData()
-		}
-	}
+//	override func viewWillAppear(_ animated: Bool) {
+//		super.viewWillAppear(animated)
+//		ReservationService.countReservations { (arr) in
+//			self.zones = arr
+//			print(self.zones)
+//			self.collectionView?.reloadData()
+//		}
+//	}
 	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
