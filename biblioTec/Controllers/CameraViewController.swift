@@ -47,14 +47,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 stringURL = machineReadableCode.stringValue!
                 // prepare json data
                 let json: [String: Any] = ["updated": 0]
-<<<<<<< HEAD
-                
                 let id = UserDefault.defaults.string(forKey: "user")!
                 
-                
-=======
-
->>>>>>> 0d3b9b7d180a667f29a6169b6480ee2ea5ef6a53
                 let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
                 // create post request
