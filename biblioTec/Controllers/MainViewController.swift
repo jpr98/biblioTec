@@ -29,13 +29,26 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		currentLabel.text = "Signed in as \(UserDefault.defaults.string(forKey: "user")!)"
+		if let user = UserDefault.defaults.string(forKey: "user") {
+			currentLabel.text = user.uppercased()
+		}
+		
 		if UserDefault.defaults.bool(forKey: "hasReserved") {
-			buscarLugarBtn.isEnabled = false
+			scanQrBtn.isEnabled = false
+			scanQrBtn.layer.backgroundColor = UIColor.gray.cgColor
 		}
         buscarLugarBtn.layer.cornerRadius = 10
         scanQrBtn.layer.cornerRadius = 10
+		//UserDefault.defaults.set(false, forKey: "hasReserved")
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		if UserDefault.defaults.bool(forKey: "hasReserved") {
+			scanQrBtn.isEnabled = false
+			scanQrBtn.layer.backgroundColor = UIColor.gray.cgColor
+		}
+	}
     
     
 }

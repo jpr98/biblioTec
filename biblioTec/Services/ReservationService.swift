@@ -56,10 +56,10 @@ struct ReservationService {
 		UserDefault.defaults.set(false, forKey: "hasReservation")
 	}
 	
-	static func countReservations(completion: @escaping([String:Int])->Void) {
+	static func countReservations(completion: @escaping([Int])->Void) {
 		let ref = Database.database().reference().child("reservations")
 		
-		var dict: [String:Int] = ["2A":0,"2B":0,"2C":0,"2D":0,"3A":0,"3B":0,"3C":0,"3D":0,"4A":0,"4B":0,"4C":0,"4D":0,"5A":0,"5B":0,"5C":0,"5D":0,"6A":0,"6B":0,"6C":0,"6D":0,]
+		var zonesArray: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		
 		ref.observeSingleEvent(of: .value) { (snapshot) in
 			// looping through every user who has a reservation
@@ -67,10 +67,53 @@ struct ReservationService {
 				let snap = child as! DataSnapshot
 				if let value = snap.value as? [String:Any] {
 					guard let zone = value["zone"] as? String else { return }
-					dict[zone]! += 1
+					switch zone {
+						case "2A":
+							zonesArray[0] += 1
+						case "2B":
+							zonesArray[1] += 1
+						case "2C":
+							zonesArray[2] += 1
+						case "2D":
+							zonesArray[3] += 1
+						case "3A":
+							zonesArray[4] += 1
+						case "3B":
+							zonesArray[5] += 1
+						case "3C":
+							zonesArray[6] += 1
+						case "3D":
+							zonesArray[7] += 1
+						case "4A":
+							zonesArray[8] += 1
+						case "4B":
+							zonesArray[9] += 1
+						case "4C":
+							zonesArray[10] += 1
+						case "4D":
+							zonesArray[11] += 1
+						case "5A":
+							zonesArray[12] += 1
+						case "5B":
+							zonesArray[13] += 1
+						case "5C":
+							zonesArray[14] += 1
+						case "5D":
+							zonesArray[15] += 1
+						case "6A":
+							zonesArray[16] += 1
+						case "6B":
+							zonesArray[17] += 1
+						case "6C":
+							zonesArray[18] += 1
+						case "6D":
+							zonesArray[19] += 1
+						default:
+							print("unexpected")
+					}
 				}
 			}
-			completion(dict)
+			completion(zonesArray)
 		}
 	}
 }

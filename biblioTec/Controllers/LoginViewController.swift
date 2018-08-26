@@ -67,3 +67,27 @@ class LoginViewController: UIViewController {
 		return ("\(email)@itesm.mx")
 	}
 }
+
+struct UserDefault {
+	static let defaults = UserDefaults.standard
+	
+	static func makingReservation() {
+		defaults.set(true, forKey: "hasReserved")
+		defaults.synchronize()
+		let _ = Timer(timeInterval: 1, repeats: false) { _ in
+			defaults.set(false, forKey: "hasReserved")
+			defaults.synchronize()
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

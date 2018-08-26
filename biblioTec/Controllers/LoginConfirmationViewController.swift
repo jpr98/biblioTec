@@ -30,26 +30,39 @@ class LoginConfirmationViewController: UIViewController {
 	// MARK: Buttons
 	@IBAction func confirmButtonTapped(_ sender: UIButton) {
 		if checkCode() {
+			print("--------------got in")
+			print(email!)
+			print(verificationTextField.text!)
 			Auth.auth().createUser(withEmail: email!, password: verificationTextField.text!) { (authResult, error) in
-				
+				print("waiting for firebase")
 				guard let user = authResult?.user,
-					  let id = self.id else { return }
+					  let id = self.id else {
+						print("returned in guard")
+						return }
 				ReservationService.createUser(email: id)
 				print("\(user) logged in")
 				UserDefault.defaults.set(id, forKey: "user")
+				UserDefault.defaults.synchronize()
+				print("user defaults saved")
+//				if let error = error {
+//					print("-----------FUCKED UP")
+//					assertionFailure(error.localizedDescription)
+//				}
+				
+				let storyboard = UIStoryboard(name: "Main", bundle: .main)
+				if let initialViewController = storyboard.instantiateInitialViewController() {
+					self.view.window?.rootViewController = initialViewController
+					self.view.window?.makeKeyAndVisible()
+				}
 			}
-			let storyboard = UIStoryboard(name: "Main", bundle: .main)
-			if let initialViewController = storyboard.instantiateInitialViewController() {
-				self.view.window?.rootViewController = initialViewController
-				self.view.window?.makeKeyAndVisible()
-			}
+			
 		}
 	}
-	
+
 	// MARK: Logic
 	func checkCode() -> Bool{
 		if let code = verificationTextField.text {
-			if code == "TCBB8HAS0L" {
+			if code == "1234" {
 				return true
 			} else {
 				return false

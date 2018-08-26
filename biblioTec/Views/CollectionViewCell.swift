@@ -67,11 +67,16 @@ class ImageCollectionViewController: UICollectionViewController {
                ("3f51b5"),
                ("03a9f4"),
                ("009688")]
-    
+	
+	var zones: [Int] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.isPagingEnabled = true
-        
+		
+		ReservationService.countReservations { (arr) in
+			self.zones = arr
+			self.collectionView?.reloadData()
+		}
         if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
             layout.scrollDirection = direction
             layout.animator = animator2.0
@@ -108,6 +113,10 @@ extension ImageCollectionViewController: UICollectionViewDelegateFlowLayout {
             let i = indexPath.row % vcs.count
             let v = vcs[i]
             cell.bind(color: v)
+			cell.labelZona1.text = String(zones[indexPath.row])
+			cell.labelZona2.text = String(zones[indexPath.row+1])
+			cell.labelZona3.text = String(zones[indexPath.row+2])
+			cell.labelZona4.text = String(zones[indexPath.row+3])
             cell.clipsToBounds = animator2.1
             cell.pisoLabel.text = "Piso \(String(indexPath.row+2))"
         }

@@ -8,13 +8,17 @@
 
 import Foundation
 
-struct UserDefault {
-	static let defaults = UserDefaults.standard
-	
-	static func makingReservation() {
-		defaults.set(true, forKey: "hasReserved")
-		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3600)) {
-			defaults.set(false, forKey: "hasReserved")
-		}
-	}
-}
+//struct UserDefault {
+//	static let defaults = UserDefaults.standard
+//
+//	static func makingReservation() {
+//		defaults.set(true, forKey: "hasReserved")
+//		defaults.synchronize()
+//		let _ = Timer(timeInterval: 1, repeats: false) { _ in
+//			defaults.set(false, forKey: "hasReserved")
+//			defaults.synchronize()
+//		}
+//
+//	}
+//}
+
