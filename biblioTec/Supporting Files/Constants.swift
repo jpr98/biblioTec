@@ -11,5 +11,6 @@ import Foundation
 struct Constants {
 	struct SegueIdenfiers {
 		static let toConfirmCode = "toConfirmCode"
+		static let endedScanning = "endedScanning"
 	}
 }

@@ -125,13 +125,13 @@
                                 <rect key="frame" x="30" y="510" width="315" height="127"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanea el QR code de tu mesa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx7-de-cSu">
-                                        <rect key="frame" x="1.5" y="0.0" width="312" height="64"/>
+                                        <rect key="frame" x="1.5" y="0.0" width="312" height="63.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-fQ-400">
-                                        <rect key="frame" x="1.5" y="64" width="312" height="63"/>
+                                        <rect key="frame" x="1.5" y="63.5" width="312" height="63.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Regresar"/>
                                         <connections>
@@ -161,6 +161,7 @@
                     <connections>
                         <outlet property="backBtn" destination="ZNP-fQ-400" id="HLy-Ya-udx"/>
                         <outlet property="cameraView" destination="nrc-tB-ODt" id="KHs-pJ-uwl"/>
+                        <segue destination="8fs-m4-3Ql" kind="unwind" identifier="endedScanning" unwindAction="unwindWithSegue:" id="xcV-iF-FX6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7c-0i-3aO" userLabel="First Responder" sceneMemberID="firstResponder"/>
