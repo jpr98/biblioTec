@@ -74,6 +74,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 				
 				let alertController = UIAlertController(title: "Código Escaneado", message: "Gracias por ayudarnos a hacer la biblioteca un mejor lugar para todos!", preferredStyle: .alert)
 				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_) in
+					UserDefault.makingReservation()
 					self.unwind()
 				}))
 				present(alertController, animated: true, completion: nil)

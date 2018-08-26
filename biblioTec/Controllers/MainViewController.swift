@@ -28,7 +28,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		if UserDefault.defaults.bool(forKey: "hasReserved") {
+			buscarLugarBtn.isEnabled = false
+		}
         buscarLugarBtn.layer.cornerRadius = 10
         scanQrBtn.layer.cornerRadius = 10
     }
