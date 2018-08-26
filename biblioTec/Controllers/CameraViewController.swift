@@ -76,7 +76,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 				alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
 				present(alertController, animated: true, completion: nil)
 				self.performSegue(withIdentifier: Constants.SegueIdenfiers.endedScanning, sender: self)
-				break
             }
         }
     }
