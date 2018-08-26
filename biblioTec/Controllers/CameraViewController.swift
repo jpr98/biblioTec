@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Foundation
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -44,7 +45,33 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let machineReadableCode = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             if machineReadableCode.type == AVMetadataObject.ObjectType.qr {
                 stringURL = machineReadableCode.stringValue!
-                print("QR CODE-------:\(stringURL)") //FLAGGGG <--------------------------------------------------------
+                print("QR CODE-------:\(stringURL)")
+                // prepare json data
+                let json: [String: Any] = ["updated": 0]
+                
+                let jsonData = try? JSONSerialization.data(withJSONObject: json)
+                
+                // create post request
+                let url = URL(string: stringURL)!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue(" application/json; charset=utf-8", forHTTPHeaderField:"Content-Type")
+                
+
+                // insert json data to the request
+                request.httpBody = jsonData
+                
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any] {
+                        print(responseJSON)
+                    }
+                }
+                task.resume()
             }
         }
     }
