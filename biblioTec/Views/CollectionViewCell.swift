@@ -73,11 +73,11 @@ class ImageCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.isPagingEnabled = true
 		
-//		ReservationService.countReservations { (arr) in
-//			self.zones = arr
-//			//print(self.zones)
-//			self.collectionView?.reloadData()
-//		}
+		ReservationService.countReservations { (arr) in
+			self.zones = arr
+			print(self.zones)
+			self.collectionView?.reloadData()
+		}
         if let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout {
             layout.scrollDirection = direction
             layout.animator = animator2.0
@@ -90,10 +90,11 @@ class ImageCollectionViewController: UICollectionViewController {
 		super.viewWillAppear(animated)
 		ReservationService.countReservations { (arr) in
 			self.zones = arr
+			print(self.zones)
 			self.collectionView?.reloadData()
 		}
 	}
-    
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
